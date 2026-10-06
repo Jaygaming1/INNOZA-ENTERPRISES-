@@ -1,104 +1,460 @@
 <!DOCTYPE html>
-<html>
+<html lang="sw">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INNOZA ENTERPRISES - Huduma za Dawa na Uhauri</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Innoza Pharmacy - Huduma Bora za Afya na Dawa</title>
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="gCftT08OIbSq4RWmBgoLt3wa-mVVXtRQSVhMgGMI6Hw" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eefcf6',
+                            100: '#d5f7e8',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f8ff;
-            color: #333;
+        html {
+            scroll-behavior: smooth;
         }
-        .header {
-            background-color: #0066cc;
-            color: white;
-            padding: 15px;
-            text-align: center;
+        .product-card {
+            transition: all 0.3s ease;
         }
-        .logo {
-            width: 120px;
-            height: auto;
-            margin: 0 auto;
-            display: block;
-            background-color: white;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .nav {
-            background-color: #004080;
-            padding: 10px;
-            text-align: center;
-        }
-        .nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .content {
-            padding: 15px;
-            margin-bottom: 60px;
-        }
-        .footer {
-            background-color: #0066cc;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        .service-box {
-            background: white;
-            border-radius: 8px;
-            padding: 10px;
-            margin: 10px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        .filter-btn.active {
+            background: #059669;
+            color: #fff;
+            border-color: #059669;
         }
     </style>
 </head>
-<body>
-    <div class="header">
-        <!-- LOGO YA INNOZA (Nimebadilisha kutoka NOVAL) -->
-        <div class="logo">INNOZA ENTERPRISES<br><small>PHARMACY</small></div>
-        <p>Huduma Bora za Dawa na Uhauri kwa Wagonjwa</p>
-    </div>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
-    <div class="nav">
-        <a href="#home">Nyumbani</a>
-        <a href="#services">Huduma</a>
-        <a href="#about">Kuhusu Sisi</a>
-        <a href="#contact">Wasiliana</a>
-    </div>
-
-    <div class="content">
-        <h2 id="home">Karibu INNOZA ENTERPRISES</h2>
-        <p>Tunatoa dawa sahihi na ushauri wa afya kwa wateja wetu kwa uaminifu.</p>
-
-        <h2 id="services">Huduma Zetu</h2>
-        <div class="service-box">
-            <h3>Utoaji wa Dawa</h3>
-            <p>Dawa za maagizo na zisizo za maagizo kwa bei nafuu.</p>
+    <!-- Top Notification Bar -->
+    <div class="bg-brand-700 text-white text-xs sm:text-sm py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-4">
+                <span><i class="fa-solid fa-location-dot mr-1 text-brand-100"></i> Nyerere Road, Ntyuka (Mkabala na Zahanati ya Ntyuka), Dodoma</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span><i class="fa-solid fa-phone mr-1 text-brand-100"></i> 0713 589 670 / 0752 174 404</span>
+                <span class="hidden md:inline"><i class="fa-solid fa-clock mr-1 text-brand-100"></i> Huduma Saa 24</span>
+            </div>
         </div>
-        <div class="service-box">
-            <h3>Ushauri wa Afya</h3>
-            <p>Utafiti wa shughuli za afya na mipango ya matibabu.</p>
-        </div>
-        <div class="service-box">
-            <h3>Upelekaji wa Nyumbani</h3>
-            <p>Dawa zako mpaka mlangoni bila shida.</p>
-        </div>
-
-        <h2 id="about">Kuhusu Sisi</h2>
-        <p>INNOZA ENTERPRISES ni kampuni ya dawa na afya inayojitoa kwa huduma bora kwa wateja.</p>
-
-        <h2 id="contact">Wasiliana Nasi</h2>
-        <p>Simu: +255 123 456 789<br>Email: info@innoza.co.tz<br>Mahali: Dar es Salaam, Tanzania</p>
     </div>
 
-    <div class="footer">
-        &copy; 2024 INNOZA ENTERPRISES. Haki zote zimehifadhiwa.
-    </div>
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo & Brand -->
+            <a href="#home" class="flex items-center gap-3">
+                <img src="innoza.jpg" alt="Innoza Pharmacy Logo" class="w-12 h-12 rounded-full object-cover shadow-md border-2 border-brand-500">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-black tracking-tight text-gray-900">INNOZA <span class="text-brand-600">PHARMACY</span></h1>
+                    <p class="text-xs text-gray-500 font-medium">Ntyuka, Dodoma - Afya Yako, Dhamana Yetu</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-gray-600">
+                <a href="#home" class="hover:text-brand-600 transition">Nyumbani</a>
+                <a href="#about" class="hover:text-brand-600 transition">Kuhusu Sisi</a>
+                <a href="#catalog" class="hover:text-brand-600 transition">Dawa na Bidhaa</a>
+                <a href="#order" class="hover:text-brand-600 transition">Agiza / Prescription</a>
+                <a href="#contact" class="hover:text-brand-600 transition">Mawasiliano</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="tel:0713589670" class="bg-brand-500 hover:bg-brand-600 text-white px-5 py-2.5 rounded-xl font-semibold shadow-md shadow-brand-500/20 transition flex items-center gap-2">
+                    <i class="fa-solid fa-phone-volume"></i> Piga Simu
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-gray-700 text-2xl focus:outline-none" aria-label="Open Menu" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-4 space-y-3">
+            <a href="#home" class="block py-2 text-gray-600 hover:text-brand-600 font-medium">Nyumbani</a>
+            <a href="#about" class="block py-2 text-gray-600 hover:text-brand-600 font-medium">Kuhusu Sisi</a>
+            <a href="#catalog" class="block py-2 text-gray-600 hover:text-brand-600 font-medium">Dawa na Bidhaa</a>
+            <a href="#order" class="block py-2 text-gray-600 hover:text-brand-600 font-medium">Agiza / Prescription</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-brand-600 font-medium">Mawasiliano</a>
+            <div class="pt-2">
+                <a href="tel:0713589670" class="w-full bg-brand-500 text-white text-center py-2.5 rounded-xl font-semibold block">Piga Simu Sasa</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-to-br from-brand-50 via-white to-gray-100 py-16 md:py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="inline-flex items-center gap-2 bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-shield-heart"></i> Dawa Halisi na Salama
+                </span>
+                <h2 class="text-4xl sm:text-5xl font-black text-gray-900 leading-tight">
+                    Huduma Bora za Kitaalamu na <span class="text-brand-600">Dawa Sahihi</span>
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Karibu Innoza Pharmacy iliyopo Ntyuka, Dodoma (mkabala na zahanati). Tunatoa ushauri wa matumizi ya dawa, dawa halisi, na vifaa vya tiba kwa uaminifu mkubwa.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#order" class="bg-brand-600 hover:bg-brand-700 text-white text-center px-8 py-3.5 rounded-xl font-bold shadow-lg shadow-brand-600/30 transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cart-shopping"></i> Agiza Dawa Sasa
+                    </a>
+                    <a href="#catalog" class="bg-white hover:bg-gray-50 text-gray-800 text-center border border-gray-300 px-8 py-3.5 rounded-xl font-bold transition flex items-center justify-center gap-2">
+                        Tazama Katalogi
+                    </a>
+                </div>
+
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <a href="tel:0713589670" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 bg-brand-50 px-4 py-2 rounded-full border border-brand-100 hover:bg-brand-100 transition">
+                        <i class="fa-solid fa-phone"></i> Piga Simu
+                    </a>
+                    <a href="https://wa.me/255713589670" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 bg-emerald-50 px-4 py-2 rounded-full border border-emerald-100 hover:bg-emerald-100 transition">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative group flex justify-center">
+                <div class="bg-brand-500/20 rounded-3xl p-6 absolute -inset-4 filter blur-2xl"></div>
+                <div class="relative bg-white p-8 rounded-3xl shadow-2xl border border-gray-100 flex flex-col items-center text-center">
+                    <img src="innoza.jpg" alt="Innoza Logo" class="w-48 h-48 rounded-full object-cover shadow-lg mb-4 border-4 border-brand-500">
+                    <h3 class="text-2xl font-black text-gray-900">INNOZA PHARMACY</h3>
+                    <p class="text-brand-600 font-semibold text-sm mt-1">Ntyuka, Dodoma</p>
+                    <p class="text-gray-500 text-xs mt-2">Kwa ushauri wa matumizi ya dawa na huduma bora za afya.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-black text-gray-900 mb-4">Kuhusu Innoza Pharmacy</h2>
+                    <div class="w-16 h-1.5 bg-brand-500 rounded-full mb-6"></div>
+                    <p class="text-gray-600 mb-5">Innoza Pharmacy inapatikana Ntyuka, Dodoma, ikiwa imejitolea kutoa huduma za afya zilizo bora kwa jamii. Tunahakikisha unapata dawa sahihi na ushauri wa kitaalamu wakati wote.</p>
+                    <p class="text-gray-600 mb-8">Fika moja kwa moja dukani kupata huduma ya ugawaji wa dawa sahihi na ushauri wa kitaalamu kutoka kwa wataalamu wetu.</p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center"><i class="fa-solid fa-check"></i></div>
+                            <span class="font-semibold text-gray-800 text-sm">Dawa Halisi</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center"><i class="fa-solid fa-check"></i></div>
+                            <span class="font-semibold text-gray-800 text-sm">Ushauri wa Dawa</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="innoza2.jpg" alt="Ndani ya Innoza Pharmacy" class="rounded-2xl shadow-lg w-full h-56 object-cover mt-8">
+                    <img src="innoza3.jpg" alt="Kaunta na Sehemu ya Ushauri" class="rounded-2xl shadow-lg w-full h-56 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalog" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
+                <div>
+                    <h2 class="text-3xl font-black text-gray-900">Katalogi ya Bidhaa</h2>
+                    <p class="text-gray-600 text-sm mt-1">Dawa na vifaa vya tiba zinazopatikana Innoza Pharmacy</p>
+                </div>
+                <div class="flex gap-2 flex-wrap">
+                    <button class="filter-btn active bg-brand-600 text-white px-4 py-2 rounded-xl text-sm font-semibold transition" data-filter="all">Zote</button>
+                    <button class="filter-btn bg-white text-gray-700 border border-gray-300 px-4 py-2 rounded-xl text-sm font-semibold hover:bg-gray-100 transition" data-filter="dawa">Dawa</button>
+                    <button class="filter-btn bg-white text-gray-700 border border-gray-300 px-4 py-2 rounded-xl text-sm font-semibold hover:bg-gray-100 transition" data-filter="afya">Afya na Vitamini</button>
+                    <button class="filter-btn bg-white text-gray-700 border border-gray-300 px-4 py-2 rounded-xl text-sm font-semibold hover:bg-gray-100 transition" data-filter="vifaa">Vifaa vya Tiba</button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="product-grid">
+                
+                <!-- Item 1 -->
+                <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition group" data-category="dawa">
+                    <div class="h-48 overflow-hidden bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=500&auto=format&fit=crop" alt="Painkillers" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-xs font-bold text-brand-600 uppercase bg-brand-50 px-2.5 py-1 rounded-md">Dawa</span>
+                        <h3 class="font-bold text-lg text-gray-900 mt-2">Painkillers & Homa</h3>
+                        <p class="text-gray-500 text-xs mt-1">Paracetamol na dawa mbalimbali za maumivu.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-xs text-brand-600 font-bold">Inapatikana</span>
+                            <a href="#order" class="text-brand-600 font-bold text-sm hover:underline">Agiza <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition group" data-category="dawa">
+                    <div class="h-48 overflow-hidden bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?q=80&w=500&auto=format&fit=crop" alt="Antibiotics" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-xs font-bold text-brand-600 uppercase bg-brand-50 px-2.5 py-1 rounded-md">Dawa</span>
+                        <h3 class="font-bold text-lg text-gray-900 mt-2">Antibiotics</h3>
+                        <p class="text-gray-500 text-xs mt-1">Dawa za maambukizi (kwa maelekezo ya daktari).</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-xs text-brand-600 font-bold">Inapatikana</span>
+                            <a href="#order" class="text-brand-600 font-bold text-sm hover:underline">Agiza <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition group" data-category="afya">
+                    <div class="h-48 overflow-hidden bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1607613009820-2e9f6abb959c?q=80&w=500&auto=format&fit=crop" alt="Vitamins" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-xs font-bold text-brand-600 uppercase bg-brand-50 px-2.5 py-1 rounded-md">Afya</span>
+                        <h3 class="font-bold text-lg text-gray-900 mt-2">Vitamini & Virutubisho</h3>
+                        <p class="text-gray-500 text-xs mt-1">Virutubisho vya kuimarisha afya na kinga.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-xs text-brand-600 font-bold">Inapatikana</span>
+                            <a href="#order" class="text-brand-600 font-bold text-sm hover:underline">Agiza <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition group" data-category="vifaa">
+                    <div class="h-48 overflow-hidden bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=500&auto=format&fit=crop" alt="Medical tools" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-xs font-bold text-brand-600 uppercase bg-brand-50 px-2.5 py-1 rounded-md">Vifaa vya Tiba</span>
+                        <h3 class="font-bold text-lg text-gray-900 mt-2">Vifaa vya Tiba</h3>
+                        <p class="text-gray-500 text-xs mt-1">Vifaa mbalimbali vya huduma ya kwanza na tiba.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-xs text-brand-600 font-bold">Inapatikana</span>
+                            <a href="#order" class="text-brand-600 font-bold text-sm hover:underline">Agiza <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-brand-700 to-brand-600 text-white rounded-3xl p-8 sm:p-12 shadow-xl">
+                <div class="text-center max-w-xl mx-auto mb-8">
+                    <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Huduma ya Haraka</span>
+                    <h2 class="text-3xl font-black mt-3">Agiza Dawa au Tuma Prescription</h2>
+                    <p class="text-brand-100 text-sm mt-2">Andika orodha ya dawa unazohitaji au uweke maelezo ya prescription. Unaweza pia kupakia picha ya prescription ili kurahisisha mawasiliano kupitia WhatsApp.</p>
+                </div>
+
+                <!-- Prescription Card & Steps -->
+                <div class="grid md:grid-cols-2 gap-8 items-center mb-8">
+                    <div class="bg-white text-gray-800 rounded-2xl shadow-2xl p-6 -rotate-2 hover:rotate-0 transition duration-300">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="font-black text-gray-900">Dkt. Hospitali / Zahanati</h3>
+                                <p class="text-xs text-gray-500">Fomu ya Maelekezo ya Dawa</p>
+                            </div>
+                            <i class="fa-solid fa-user-doctor text-2xl text-brand-600"></i>
+                        </div>
+                        <div class="h-0.5 bg-brand-500 rounded-full my-4"></div>
+                        <div class="flex justify-between text-xs text-gray-600 mb-4">
+                            <span>Jina: <em class="font-serif font-semibold text-gray-800">Mgonjwa</em></span>
+                            <span>Tarehe: <em class="font-serif text-gray-800">__/__/2026</em></span>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="font-serif text-4xl font-bold text-brand-700 leading-none">℞</span>
+                            <ul class="flex-1 font-serif italic text-gray-700 text-sm space-y-3">
+                                <li class="border-b border-dashed border-gray-300 pb-1">Amoxicillin 500mg — 1×3 siku 5</li>
+                                <li class="border-b border-dashed border-gray-300 pb-1">Paracetamol 500mg — 2×3 siku 3</li>
+                                <li class="border-b border-dashed border-gray-300 pb-1">ORS — kila baada ya kuharisha</li>
+                            </ul>
+                        </div>
+                        <div class="text-right mt-5">
+                            <p class="font-serif italic text-xl text-brand-700">Dr. Sahihi</p>
+                            <p class="inline-block border-t border-gray-300 pt-1 text-[11px] text-gray-500">Sahihi na Muhuri wa Daktari</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-black mb-5">Una Prescription ya Daktari?</h3>
+                        <ol class="space-y-4 text-sm text-brand-50">
+                            <li class="flex gap-3">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-white/20 text-white font-bold flex items-center justify-center">1</span>
+                                <span>Piga picha ya prescription yako ikionekana vizuri (majina ya dawa na sahihi ya daktari).</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-white/20 text-white font-bold flex items-center justify-center">2</span>
+                                <span>Jaza fomu hapa chini na upakie picha hiyo.</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-white/20 text-white font-bold flex items-center justify-center">3</span>
+                                <span>Tuma kupitia WhatsApp — wataalamu wetu watakuandalia dawa sahihi.</span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <form id="order-form" class="space-y-4 bg-white text-gray-800 p-6 sm:p-8 rounded-2xl shadow-lg">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Jina Lako Kamili</label>
+                            <input type="text" id="cust-name" required class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-500 text-sm" placeholder="Mf. Juma Ally">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Namba ya Simu</label>
+                            <input type="tel" id="cust-phone" required class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-500 text-sm" placeholder="Mf. 0713XXXXXX">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Orodha ya Dawa au Maelezo</label>
+                        <textarea id="cust-details" rows="3" required class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-500 text-sm" placeholder="Andika majina ya dawa unazozihitaji..."></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Pakia Picha ya Prescription (Hiari)</label>
+                        <input type="file" id="cust-file" accept="image/*" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-brand-50 file:text-brand-700 hover:file:bg-brand-100">
+                    </div>
+
+                    <p class="text-xs text-gray-500">Kama umepakia image, tuma pia kupitia WhatsApp baada ya kufungua ujumbe.</p>
+
+                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl transition shadow-md shadow-brand-600/20">
+                        Tuma Oda Kupitia WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact" class="py-16 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-3xl font-black text-gray-900">Wasiliana Nasi & Fika Dukani</h2>
+                <div class="w-16 h-1.5 bg-brand-500 mx-auto rounded-full mt-3"></div>
+                <p class="text-gray-600 text-sm mt-3 font-semibold">Kwa ushauri wa matumizi ya dawa wasiliana nasi kupitia namba za hapa chini:</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center">
+                    <div class="w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900">Mahali Tulipo</h3>
+                    <p class="text-gray-600 text-sm mt-2">Nyerere Road, Ntyuka<br>Mkabala na Zahanati ya Ntyuka, Dodoma</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center">
+                    <div class="w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900">Namba za Simu</h3>
+                    <p class="text-gray-600 text-sm mt-2">0713 589 670<br>0752 174 404</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center">
+                    <div class="w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900">Masaa ya Kazi</h3>
+                    <p class="text-gray-600 text-sm mt-2">Jumatatu - Jumapili<br>Huduma za Afya Saa 24</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <img src="innoza.jpg" alt="Logo" class="w-10 h-10 rounded-full object-cover border border-brand-500">
+                <span class="text-xl font-black tracking-tight">INNOZA PHARMACY NTYUKA</span>
+            </div>
+            <p class="text-gray-400 text-sm text-center">© 2026 Innoza Pharmacy. Haki zote zimehifadhiwa.</p>
+            <div class="flex gap-4 text-xl">
+                <a href="tel:0713589670" class="text-gray-400 hover:text-white transition"><i class="fa-solid fa-phone"></i></a>
+                <a href="https://wa.me/255713589670" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+            menuBtn.setAttribute('aria-expanded', String(!expanded));
+        });
+
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('active', 'bg-brand-600', 'text-white');
+                    b.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-300');
+                });
+
+                btn.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-300');
+                btn.classList.add('active', 'bg-brand-600', 'text-white');
+
+                const filter = btn.getAttribute('data-filter');
+                productCards.forEach(card => {
+                    const matches = filter === 'all' || card.getAttribute('data-category') === filter;
+                    card.style.display = matches ? 'block' : 'none';
+                });
+            });
+        });
+
+        document.getElementById('order-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('cust-name').value.tfTrim ? document.getElementById('cust-name').value.trim() : document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const details = document.getElementById('cust-details').value.trim();
+            const fileInput = document.getElementById('cust-file');
+
+            if (!name || !phone || !details) {
+                alert('Tafadhali jaza jina, namba ya simu na maelezo ya dawa.');
+                return;
+            }
+
+            let message = `Habari Innoza Pharmacy Ntyuka, ninaitwa ${name} (Simu: ${phone}). Nahitaji huduma ifuatayo:\n\n${details}`;
+
+            if (fileInput.files.length > 0) {
+                message += `\n\nNimepakia picha ya prescription. Tafadhali nipe maelekezo ya hatua inayofuata baada ya kuituma.`;
+            }
+
+            const whatsappUrl = `https://wa.me/255713589670?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
 </body>
 </html>
